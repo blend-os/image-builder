@@ -3,6 +3,8 @@ stages:
 
 build-job:
   stage: build
+  tags:
+    - iso
   script:
     - pacman -Syu --noconfirm skopeo umoci xorriso grub dosfstools squashfs-tools jq git
     - for image in arch-{gnome,plasma}; do ./iso-builder.sh "configs/${image}.yaml"; mv commonarch.iso ../"blendOS-${image}.iso"; done
