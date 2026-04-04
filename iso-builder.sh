@@ -90,6 +90,7 @@ if [[ -f bundle/rootfs/usr/bin/sddm ]]; then
     echo 'User=live' >> bundle/rootfs/etc/sddm.conf.d/autologin.conf
 elif [[ -f bundle/rootfs/usr/bin/gdm ]]; then
     mv bundle/rootfs/etc/gdm bundle/rootfs/etc/gdm.old || :
+    mkdir -p bundle/rootfs/etc/gdm
     echo '[daemon]' > bundle/rootfs/etc/gdm/custom.conf
     echo 'AutomaticLoginEnable=True' >> bundle/rootfs/etc/gdm/custom.conf
     echo 'AutomaticLogin=live' >> bundle/rootfs/etc/gdm/custom.conf
