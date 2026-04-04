@@ -21,7 +21,9 @@ cd .build
 set -uo pipefail
 
 mkdir -p bundle/rootfs
-akshara gen-rootfs "$CONFIG_FILE" bundle/rootfs
+git clone -b v5 https://git.blendos.co/blendOS/system-tools/akshara
+./akshara/usr/lib/akshara/akshara gen-rootfs "$CONFIG_FILE" bundle/rootfs --no-cache
+rm -rf akshara
 
 kernels=(bundle/rootfs/boot/vmlinuz-*)
 kernel="${kernels[0]}"
