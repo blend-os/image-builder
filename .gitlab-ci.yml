@@ -6,7 +6,7 @@ build-job:
   tags:
     - iso
   script:
-    - pacman -Syu --noconfirm skopeo umoci xorriso grub dosfstools squashfs-tools jq git
+    - pacman -Syu --noconfirm skopeo umoci xorriso grub dosfstools squashfs-tools jq git python-click python-fasteners python-yaml
     - for image in arch-{gnome,plasma}; do ./iso-builder.sh "configs/${image}.yaml"; mv commonarch.iso ../"blendOS-${image}.iso"; done
     - echo $CI_COMMIT_SHA > version
     - for image in blendOS-arch-{gnome,plasma}{,-waydroid,-nvidia,-nvidia-waydroid}; do sha256sum "${image}.iso" > "${image}.iso.sha256sum"; done
