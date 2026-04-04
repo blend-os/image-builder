@@ -1,0 +1,6 @@
+#!/bin/bash
+
+sudo mkdir -p /etc/xdg/Kvantum
+echo 'theme=KvArc' | sudo tee /etc/xdg/Kvantum/kvantum.kvconfig
+
+sudo -E QT_STYLE_OVERRIDE=kvantum /usr/bin/calamares "$@"

@@ -1,3 +1,2 @@
-out/
-workdir/
-work/
+.build/
+*.iso

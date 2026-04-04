@@ -1,31 +1,20 @@
-# blendOS ISO build scripts
-The blendOS build scripts are used to build the blendOS installation ISO images.
+# ISO builder
 
-## Building the ISO
-### 1. Install the build tools
-```
-sudo pacman -S archiso
-```
-### 2. Pull the repository
-```
-git clone https://git.blendos.co/blendOS/image-builder.git
-```
-### 3. Build
-```
-cd image-builder
-sudo mkarchiso -v -w workdir/ -o out/ .
-```
-Once the building process is finished you can find the ISO image in the `./out` directory.
-### 4. Rebuilding the ISO
-When building a second time you will have to remove the `./out` and `./workdir` directories.
-```
-sudo rm -rf ./out ./workdir
-```
+An ISO builder for blendOS tracks.
 
 ## Credits
-This is based on Arkane Linux's ISO build scripts.
 
-## Development
-Contributions, in any form, be it code or ideas are always welcome!
-### Getting started as a contributor
-Refer to the ArchWiki page on [Archiso](https://wiki.archlinux.org/title/Archiso) for information. Or follow the introductionary videos and articles by Erik Dubois on the Carli project, if you are GNU/Linux savvy the [Carli-1](https://www.arcolinuxiso.com/carli-1/) series of videos should provide you with all the information you need to get started.
+In no particular order,
+
+* Erik Dubois, the developer of ALCI (which we've forked our calamares config from).
+* The articles/malls/answers/code files listed underneath:
+    * https://askubuntu.com/a/1111760
+    * https://bugs.archlinux.org/task/71382#comment202911
+    * https://www.willhaley.com/blog/custom-debian-live-environment-grub-only/
+    * https://github.com/VNOI-Admin/image-builder/blob/master/build.sh
+    * https://lists.gnu.org/archive/html/bug-xorriso/2015-04/msg00003.html
+* Thomas Schmitt, the developer of xorriso, who continues to provide excellent guidance on StackOverflow and AskUbuntu regarding his project.
+
+## License
+
+This project is licensed under the GPL-3.0 license.
