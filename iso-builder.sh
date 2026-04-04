@@ -99,6 +99,8 @@ mv bundle/rootfs/initramfs.img iso/arch/boot/x86_64
 
 cp "$CONFIG_FILE" bundle/rootfs/system.yaml
 
+rm -rf bundle/rootfs/var/cache/blendOS/pacman
+
 mksquashfs bundle/rootfs iso/arch/x86_64/airootfs.sfs
 
 cat > grub.cfg <<EOF
