@@ -84,11 +84,12 @@ rm -f -- bundle/rootfs/*.pkg*
 cp -a ../etc/* bundle/rootfs/etc
 
 if [[ -f bundle/rootfs/usr/bin/sddm ]]; then
+    mv bundle/rootfs/etc/sddm.conf.d bundle/rootfs/etc/sddm.conf.d.old || :
     mkdir -p bundle/rootfs/etc/sddm.conf.d
     echo '[Autologin]' > bundle/rootfs/etc/sddm.conf.d/autologin.conf
     echo 'User=live' >> bundle/rootfs/etc/sddm.conf.d/autologin.conf
 elif [[ -f bundle/rootfs/usr/bin/gdm ]]; then
-    mkdir -p bundle/rootfs/etc/gdm
+    mv bundle/rootfs/etc/gdm bundle/rootfs/etc/gdm.old || :
     echo '[daemon]' > bundle/rootfs/etc/gdm/custom.conf
     echo 'AutomaticLoginEnable=True' >> bundle/rootfs/etc/gdm/custom.conf
     echo 'AutomaticLogin=live' >> bundle/rootfs/etc/gdm/custom.conf
@@ -99,7 +100,7 @@ mv bundle/rootfs/initramfs.img iso/arch/boot/x86_64
 
 cp "$CONFIG_FILE" bundle/rootfs/system.yaml
 
-rm -rf bundle/rootfs/var/cache/blendOS/pacman
+# rm -rf bundle/rootfs/var/cache/blendOS/pacman
 
 mksquashfs bundle/rootfs iso/arch/x86_64/airootfs.sfs
 
@@ -206,7 +207,7 @@ xorriso \
     --grub2-boot-info \
     --grub2-mbr "bundle/rootfs/usr/lib/grub/i386-pc/boot_hybrid.img" \
     --efi-boot "boot/grub/efi.img" -efi-boot-part --efi-boot-image \
-    -o ../blendOS.iso \
+    -iso-level 3 -o ../blendOS.iso \
     iso
 
 cd ..
