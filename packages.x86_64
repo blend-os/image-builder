@@ -84,6 +84,7 @@ wpa_supplicant
 wvdial
 xfsprogs
 xl2tpd
+efibootmgr
 
 ### On-ISO drivers
 nvidia-dkms
