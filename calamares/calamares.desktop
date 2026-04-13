@@ -1,7 +1,7 @@
 [Desktop Entry]
 Type=Application
 Version=1.0
-Name=Install CommonArch
+Name=Install blendOS
 GenericName=Live Installer
 Comment=Install the operating system to disk
 Exec=/usr/bin/calamares_polkit %f
